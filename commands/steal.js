@@ -2,7 +2,7 @@ const {MessageEmbed, Util } = require("discord.js");
 
 module.exports.run = async (client, message, args) =>{
 
-    const isPermitted = message.member.roles.cache.has(staff_roles)
+    const isPermitted = message.member.permissions.has("MANAGE_EMOJIS_AND_STICKERS")
 
     if(!isPermitted){
         message.channel.send("You are not permitted to use that");
