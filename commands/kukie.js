@@ -1,4 +1,5 @@
 module.exports.run = async (message) =>{
+    console.log("debug")
     message.channel.send(
         "⣿⣿⣿⣿⣿⣿⣿⡿⢉⣴⣶⣌⠹⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿\n" +
         "⣿⣿⣿⣿⣿⠿⢃⣴⣿⣇⡙⢿⣷⣄⠻⢿⣿⣿⣿⣿⣿⣿⣿⣿\n" +
