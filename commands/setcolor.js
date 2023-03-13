@@ -11,4 +11,5 @@ module.exports.run = async (client, message, args) =>{
             message.channel.send(clr);
             break;
     }
+    message.channel.send("Your color is " + clr)
 }
