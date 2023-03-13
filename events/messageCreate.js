@@ -2,6 +2,11 @@ const { client } = require("../index.js");
 // const { MessageEmbed } = require("discord.js")
 
 client.on("messageCreate", async message => {
+    // restart stuff
+    if(message.channel.id === process.env.GITHUB_SPAM){
+        process.exit(0)
+    }
+
     if(message.author.bot || !message.content.startsWith(prefix)) return;
     const args = message.content.slice(prefix.length).split(/ +/);
     const cmd = args.shift().toLowerCase();
