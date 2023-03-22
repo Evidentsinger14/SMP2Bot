@@ -1,7 +1,6 @@
 const { MessageEmbed } = require("discord.js");
 
 module.exports.run = async (client, message) =>{
-    console.log("console works");
 
     const totalMembers = client.guilds.cache.map(guild => guild.memberCount).reduce((a,b) => a + b, 0);
     const totalChannels = "this.doesNotWork";
