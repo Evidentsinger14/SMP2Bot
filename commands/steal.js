@@ -11,7 +11,7 @@ module.exports.run = async (client, message, args) =>{
 
     const embed = new MessageEmbed()
     .setColor("DARK_RED")
-    .setDescription(`:x: Incorrect format\n Correct format: ${prefix}steal <Emoji>`)
+    .setDescription(`:x: Incorrect format\n Correct format: ${prefix}steal [emoji]`)
 
     if (!args.length){
     return message.channel.send({ embeds: [embed] });
@@ -23,10 +23,16 @@ module.exports.run = async (client, message, args) =>{
             const extension = parsed_emoji.animated ? ".gif" : ".png";
             const url = `https://cdn.discordapp.com/emojis/${parsed_emoji.id + extension}`;
             try {
-
-                message.guild.emojis.create(url, parsed_emoji.name).then((emoji) => {
-                    message.channel.send(`Added ${emoji.url}`);
-                });
+                if(args[1] === "--debug"){
+                    message.reply(
+                        "Emoji ID: " + parsed_emoji.id +
+                        "Emoji Raw Info: " + parsed_emoji
+                    )
+                } else {
+                    message.guild.emojis.create(url, parsed_emoji.name).then((emoji) => {
+                        message.channel.send(`Added ${emoji.url}`);
+                    });
+                }
 
             } catch (error) {
 
