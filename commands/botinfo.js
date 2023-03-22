@@ -1,16 +1,17 @@
 const { MessageEmbed } = require("discord.js");
 
 module.exports.run = async (client, message) =>{
+    console.log("console works");
 
     const totalMembers = client.guilds.cache.map(guild => guild.memberCount).reduce((a,b) => a + b, 0);
-    const totalChannels = "this.doesNotWork"
+    const totalChannels = "this.doesNotWork";
 
     const days = Math.floor(client.uptime / 86400000);
     const hours = Math.floor(client.uptime / 3600000) % 24;
     const minutes = Math.floor(client.uptime / 60000) % 60;
     const seconds = Math.floor(client.uptime / 1000) % 60;
 
-    const uptimeValue = `${days}d, ${hours}h, ${minutes}m, ${seconds}s`
+    const uptimeValue = `${days}d, ${hours}h, ${minutes}m, ${seconds}s`;
 
     const embed = new MessageEmbed()
 
