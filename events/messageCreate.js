@@ -19,4 +19,18 @@ client.on("messageCreate", async message => {
         command_file.run(client, message, args);
     } catch (error){
     }
+
+    let randomNumber = Math.ceil(Math.random() * 10);
+    let messageContent = message.content;
+
+    if(randomNumber % 2 === 0){
+        stringReverse(messageContent)
+    }
+
+    function stringReverse(message) {
+        let splitThisMotherfucker = message.split("");
+        let reverseThisMotherfucker = splitThisMotherfucker.reverse();
+        let joinThisMotherfucker = reverseThisMotherfucker.join("");
+        message.channel.send(joinThisMotherfucker);
+    }
 })
