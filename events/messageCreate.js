@@ -7,19 +7,6 @@ client.on("messageCreate", async message => {
         process.exit(0)
     }
 
-    if(message.author.bot || !message.content.startsWith(prefix)) return;
-    const args = message.content.slice(prefix.length).split(/ +/);
-    const cmd = args.shift().toLowerCase();
-
-    // Command Handler
-
-    try {
-        delete require.cache[require.resolve(`../commands/${cmd}.js`)];
-        const command_file = require(`../commands/${cmd}.js`);
-        command_file.run(client, message, args);
-    } catch (error){
-    }
-
     let randomNumber = Math.ceil(Math.random() * 10);
     let messageContent = message.content;
 
@@ -33,4 +20,18 @@ client.on("messageCreate", async message => {
         let joinThisMotherfucker = reverseThisMotherfucker.join("");
         message.channel.send(joinThisMotherfucker);
     }
+
+    if(message.author.bot || !message.content.startsWith(prefix)) return;
+    const args = message.content.slice(prefix.length).split(/ +/);
+    const cmd = args.shift().toLowerCase();
+
+    // Command Handler
+
+    try {
+        delete require.cache[require.resolve(`../commands/${cmd}.js`)];
+        const command_file = require(`../commands/${cmd}.js`);
+        command_file.run(client, message, args);
+    } catch (error){
+    }
+
 })
