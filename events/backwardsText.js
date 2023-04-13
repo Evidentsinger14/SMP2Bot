@@ -16,7 +16,7 @@ client.on("messageCreate", async message => {
         let splitThisMotherfucker = message.split("");
         let reverseThisMotherfucker = splitThisMotherfucker.reverse();
         let joinThisMotherfucker = reverseThisMotherfucker.join("");
-        message.reply(joinThisMotherfucker);
+        message.channel.send(joinThisMotherfucker);
     }
 
 
