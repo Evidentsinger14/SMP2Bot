@@ -7,13 +7,6 @@ client.on("messageCreate", async message => {
         process.exit(0)
     }
 
-    let randomNumber = Math.ceil(Math.random() * 10);
-    let messageContent = message.content;
-
-    if(randomNumber % 2 === 0){
-        stringReverse(messageContent)
-    }
-
     if(message.author.bot || !message.content.startsWith(prefix)) return;
     const args = message.content.slice(prefix.length).split(/ +/);
     const cmd = args.shift().toLowerCase();
