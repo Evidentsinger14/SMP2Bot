@@ -14,13 +14,6 @@ client.on("messageCreate", async message => {
         stringReverse(messageContent)
     }
 
-    function stringReverse(message) {
-        let splitThisMotherfucker = message.split("");
-        let reverseThisMotherfucker = splitThisMotherfucker.reverse();
-        let joinThisMotherfucker = reverseThisMotherfucker.join("");
-        message.channel.send(joinThisMotherfucker);
-    }
-
     if(message.author.bot || !message.content.startsWith(prefix)) return;
     const args = message.content.slice(prefix.length).split(/ +/);
     const cmd = args.shift().toLowerCase();
